@@ -3,7 +3,11 @@ import string
 
 from flask import flash, render_template, redirect
 
-from settings import LINK_LENGTH, DUPLICATE_MESSAGE, NEW_LINK_MESSAGE
+from settings import (
+    LINK_LENGTH,
+    NEW_LINK_MESSAGE,
+    DUPLICATE_MESSAGE_FOR_HTTP,
+)
 from . import app, db
 from .forms import UrlMapForm
 from .models import URLMap
@@ -22,7 +26,7 @@ def add_short_link_view():
     form = UrlMapForm()
     if form.validate_on_submit():
         if URLMap.query.filter_by(short=form.custom_id.data).first() is not None:
-            flash(DUPLICATE_MESSAGE.format(form.custom_id.data))
+            flash(DUPLICATE_MESSAGE_FOR_HTTP.format(form.custom_id.data))
             return render_template("add_short_link.html", form=form)
         short = form.custom_id.data or get_unique_short_id()
         urlmap = URLMap(original=form.original_link.data, short=short)

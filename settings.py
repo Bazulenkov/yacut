@@ -14,7 +14,9 @@ LINK_LENGTH = 6
 NEW_LINK_MESSAGE = "Ваша новая ссылка готова:"
 
 # error messages
-DUPLICATE_MESSAGE = "Имя {} уже занято!"
-NO_REQUIRED_FIELDS_GIVEN_MESSAGE = "В запросе отсутствуют обязательные поля"
+DUPLICATE_MESSAGE_FOR_API = 'Имя "{}" уже занято.'
+DUPLICATE_MESSAGE_FOR_HTTP = "Имя {} уже занято!"
+
+NO_REQUIRED_FIELDS_GIVEN_MESSAGE = '"url" является обязательным полем!'
 NO_BODY_MESSAGE = "Отсутствует тело запроса"
 NOT_FOUND_MESSAGE = "Ссылка с указанным коротким путем не найдена"
