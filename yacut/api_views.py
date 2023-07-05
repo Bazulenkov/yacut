@@ -34,8 +34,7 @@ def add_urlmap():
     if URLMap.query.filter_by(short=short).first() is not None:
         raise InvalidAPIUsage(DUPLICATE_MESSAGE_FOR_API.format(short))
     urlmap = URLMap(original=data["url"], short=short)
-    db.session.add(urlmap)
-    db.session.commit()
+    urlmap.save_obj()
     return (
         jsonify(
             {"url": urlmap.original, "short_link": urljoin(request.url_root, short)}

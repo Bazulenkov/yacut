@@ -1,0 +1,21 @@
+[project]
+name = "YaCut"
+version = "1.0.0"
+description = "The reference shortening service."
+readme = "README.md"
+license = {text = "MIT License"}
+maintainers = [{name = "Anton Bazulenkov"}]
+dependencies = [
+    "flask",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]

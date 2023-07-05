@@ -10,7 +10,7 @@ git clone
 cd yacut
 ```
 
-Create and activate virtual environment:
+Create a virtualenv and activate it:
 ```
 python3 -m venv venv
 ```

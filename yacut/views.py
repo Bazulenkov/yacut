@@ -30,8 +30,7 @@ def add_short_link_view():
             return render_template("add_short_link.html", form=form)
         short = form.custom_id.data or get_unique_short_id()
         urlmap = URLMap(original=form.original_link.data, short=short)
-        db.session.add(urlmap)
-        db.session.commit()
+        urlmap.save_obj()
         context = {"form": form, "urlmap": urlmap}
         flash(NEW_LINK_MESSAGE)
         return render_template("add_short_link.html", **context)
